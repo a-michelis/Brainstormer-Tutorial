@@ -26,7 +26,7 @@ namespace BrainStormer
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseNpgsql(Configuration["Secrets:Database:ConnectionString"]);
             });
             services.AddDefaultIdentity<IdentityUser>(options =>
             {
